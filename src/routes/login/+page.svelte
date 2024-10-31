@@ -56,7 +56,7 @@
 <svelte:head>
 	<title>Login</title>
 </svelte:head>
-<main class="flex flex-col items-center justify-center min-h-screen bg-millenniumBlue text-white p-4">
+<main class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-800 to-black rounded-lg shadow-lg">
   <div class="max-w-lg w-full">
     <h1 class="text-3xl font-display mb-6 text-center text-white">Enter your credentials</h1>
     <form on:submit|preventDefault={loginUser} class="space-y-4">

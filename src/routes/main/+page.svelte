@@ -30,6 +30,12 @@
   let totalHours = writable<number | null>(null);
   let totalRevenue = writable<number | null>(null);
 
+
+    let isDropdownOpen = false;
+    function toggleDropdown() {
+    isDropdownOpen = !isDropdownOpen; // Toggle the dropdown visibility
+  }
+
   // Derived store to calculate total to be paid on venue
   let totalToBePaidOnVenue = derived(bookings, ($bookings) =>
     $bookings.reduce((total, booking) => total + (booking.to_be_paid_on_venue || 0), 0)
@@ -121,7 +127,74 @@
   }
 </script>
 
+
+
+
+
 <svelte:head>
+	<title>Dashboard</title>
+</svelte:head>
+
+<nav class="w-full bg-millenniumBlue p-4 md:px-8 flex flex-col md:flex-row items-center">
+  
+  <div class="flex-1 mb-4 md:mb-0">
+    <span class="text-white text-3xl md:text-4xl font-extrabold tracking-widest">Azurro</span>
+    <img src="/assets/logo2.png" alt="Logo" class="inline-block h-8 md:h-10 ml-2">
+  </div>
+  
+  <div class="flex-1 flex justify-end">
+    {#if $user}
+        <div class="relative">
+          <button 
+          on:click={toggleDropdown} 
+          class="bg-black text-white py-2 px-6 rounded-lg shadow-lg transition-colors duration-200 ease-in-out font-extrabold"
+      >
+          User
+      </button>
+      
+            {#if isDropdownOpen}
+                <div class="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-10">
+                    <button 
+                        on:click={logoutUser} 
+                        class="block w-full text-left py-2 px-4 hover:bg-gray-200"
+                    >
+                        Logout
+                    </button>
+                    <button  
+                        class="block w-full text-left py-2 px-4 hover:bg-gray-200"
+                    >
+                        Profile
+                    </button>
+                </div>
+            {/if}
+        </div>
+    {/if}
+</div>
+
+  
+  <!-- <div class="flex-1 flex justify-end">
+      {#if $user}
+          <button 
+              on:click={logoutUser} 
+              class="bg-transparent text-white py-2 px-6 rounded-lg hover:bg-gray-200 hover:text-millenniumBlue transition-colors duration-200 ease-in-out"
+          >
+              Logout
+          </button>
+      {/if}
+  </div> -->
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <svelte:head>
 	<title>Dashboard</title>
 </svelte:head>
 
@@ -141,7 +214,7 @@
           <button on:click={logoutUser} class="bg-transparent text-white py-2 px-4 rounded border border-white hover:bg-white hover:text-black transition">Logout</button>
       {/if}
   </div>
-</nav>
+</nav> -->
 
 <main class="bg-millenniumBlue text-white p-4 font-sans min-h-screen">
   {#if $user}
