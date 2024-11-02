@@ -139,15 +139,15 @@
   
   <div class="flex-1 mb-4 md:mb-0">
     <span class="text-white text-3xl md:text-4xl font-extrabold tracking-widest">Azurro</span>
-    <img src="/assets/logo2.png" alt="Logo" class="inline-block h-8 md:h-10 ml-2">
   </div>
+
   
   <div class="flex-1 flex justify-end">
     {#if $user}
         <div class="relative">
           <button 
           on:click={toggleDropdown} 
-          class="bg-black text-white py-2 px-6 rounded-lg shadow-lg transition-colors duration-200 ease-in-out font-extrabold"
+          class=" text-white py-2 px-6 rounded-lg shadow-lg transition-colors duration-200 ease-in-out font-extrabold"
       >
           User
       </button>
@@ -220,7 +220,7 @@
   {#if $user}
       <div class="max-w-4xl w-full mt-6 mx-auto p-4 md:p-8">
           {#if $turfName}
-              <h1 class="text-xl md:text-2xl mb-2 font-semibold text-center">{$turfName}</h1>
+              <h1 class="text-xl md:text-2xl mb-2 font-semibold text-center">{$turfName} Dashboard</h1>
               {#if $turfLocation}
                   <p class="text-sm md:text-base mb-4 text-center">{$turfLocation}</p>
               {/if}
