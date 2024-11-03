@@ -33,8 +33,8 @@
                 <img src="assets/logo2.png" alt="Logo" class="mx-auto mb-6 w-48 h-auto">
                 
                 <!-- Text Content -->
-                <h1 class="text-6xl font-display text-white">Azurro</h1>
-                <h3 class="text-3xl mt-3 text-gray-300">Enterprise account</h3>
+                <h1 class="text-4xl font-semibold text-white">Azurro</h1>
+                <h3 class="text-2xl mt-3 text-gray-300">Enterprise account</h3>
                 <nav class="mt-6">
                     <a href="/login" class="inline-block mb-4 text-xl text-white py-2 px-12 border border-white" style="border-radius: 5px;">Login</a>
                     <p class="text-white">
