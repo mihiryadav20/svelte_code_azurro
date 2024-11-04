@@ -135,92 +135,56 @@
 	<title>Dashboard</title>
 </svelte:head>
 
-<nav class="w-full bg-millenniumBlue p-4 md:px-8 flex flex-col md:flex-row items-center">
-  
-  <div class="flex-1 mb-4 md:mb-0">
-    <span class="text-white text-3xl md:text-4xl font-extrabold tracking-widest">Azurro</span>
-  </div>
+<div class="bg-gradient-to-b from-gray-800 to-black shadow-lg">
+  <nav class="w-full bg-millenniumBlue p-4 md:px-8 flex items-center">
+    
+    <!-- Left Section with Azurro title -->
+    <div class="flex-1 flex justify-start">
+        <span class="text-white text-2xl font-semibold tracking-widest">Azurro</span>
+    </div>
 
-  
-  <div class="flex-1 flex justify-end">
-    {#if $user}
-        <div class="relative">
-          <button 
-          on:click={toggleDropdown} 
-          class=" text-white py-2 px-6 rounded-lg shadow-lg transition-colors duration-200 ease-in-out font-extrabold"
-      >
-          User
-      </button>
-      
-            {#if isDropdownOpen}
-                <div class="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-10">
-                    <button 
-                        on:click={logoutUser} 
-                        class="block w-full text-left py-2 px-4 hover:bg-gray-200"
-                    >
-                        Logout
-                    </button>
-                    <button  
-                        class="block w-full text-left py-2 px-4 hover:bg-gray-200"
-                    >
-                        Profile
-                    </button>
-                </div>
-            {/if}
-        </div>
-    {/if}
-</div>
+    <!-- Center Section with Dashboard link -->
+    <div class="flex-1 flex justify-center mt-2">
+        <a href="/dashboard" class="text-white text-2xl font-semibold">Dashboard</a>
+    </div>
 
-  
-  <!-- <div class="flex-1 flex justify-end">
-      {#if $user}
-          <button 
-              on:click={logoutUser} 
-              class="bg-transparent text-white py-2 px-6 rounded-lg hover:bg-gray-200 hover:text-millenniumBlue transition-colors duration-200 ease-in-out"
-          >
-              Logout
-          </button>
-      {/if}
-  </div> -->
+    <!-- Right Section with User Dropdown -->
+    <div class="flex-1 flex justify-end">
+        {#if $user}
+            <div class="relative">
+                <button 
+                    on:click={toggleDropdown} 
+                    class="text-white text-xl py-1 px-4 rounded-lg shadow-lg transition-colors duration-200 ease-in-out font-semibold"
+                >
+                    User
+                </button>
+                {#if isDropdownOpen}
+                    <div class="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-10">
+                        <button 
+                            on:click={logoutUser} 
+                            class="block w-full text-left py-2 px-4 hover:bg-gray-200"
+                        >
+                            Logout
+                        </button>
+                        <button  
+                            class="block w-full text-left py-2 px-4 hover:bg-gray-200"
+                        >
+                            Profile
+                        </button>
+                    </div>
+                {/if}
+            </div>
+        {/if}
+    </div>
 </nav>
 
 
 
-
-
-
-
-
-
-
-
-<!-- <svelte:head>
-	<title>Dashboard</title>
-</svelte:head>
-
-<nav class="w-full bg-millenniumBlue p-4 flex flex-col md:flex-row items-center border-b border-gray-300">
-  <div class="flex-1 mb-4 md:mb-0">
-      {#if $user}
-          <span class="text-white text-base font-bold">{$user.first_name} {$user.last_name}</span>
-      {:else}
-          <span class="text-white text-xl font-bold">Loading...</span>
-      {/if}
-  </div>
-  <div class="flex-1 text-center mb-4 md:mb-0">
-      <span class="text-white text-2xl md:text-4xl font-bold">Dashboard</span>
-  </div>
-  <div class="flex-1 flex justify-end">
-      {#if $user}
-          <button on:click={logoutUser} class="bg-transparent text-white py-2 px-4 rounded border border-white hover:bg-white hover:text-black transition">Logout</button>
-      {/if}
-  </div>
-</nav> -->
-
-<main class="bg-millenniumBlue text-white p-4 font-sans min-h-screen">
+<main class="bg-millenniumBlue text-white p-4 font-sans min-h-screen ">
   {#if $user}
       <div class="max-w-4xl w-full mt-6 mx-auto p-4 md:p-8">
           {#if $turfName}
-              <h1 class="text-xl md:text-2xl mb-2 font-semibold text-center">{$turfName} Dashboard</h1>
+              <h1 class="text-xl md:text-2xl mb-2 font-semibold text-center">{$turfName}</h1>
               {#if $turfLocation}
                   <p class="text-sm md:text-base mb-4 text-center">{$turfLocation}</p>
               {/if}
@@ -286,6 +250,8 @@
       <p>Loading...</p>
   {/if}
 </main>
+
+</div>
 
 <style>
   table {
